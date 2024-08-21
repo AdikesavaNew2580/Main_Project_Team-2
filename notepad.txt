@@ -1,1 +1,11 @@
+<<<<<<< HEAD
 Main project
+=======
+Roles and Responsibilities,
+Adikesava  (1035478) – CRUD Operations, Controllers logics, Action Methods
+Sripriya (1035503) – Backend, TestCases
+Sahana (1035495) – Backend
+Vijendra (1035471) – Sql database, Design tables
+Uhalatha (1035585) – FrontEnd, Views design
+Nithin (1035476) – Frontend and UI Design
+>>>>>>> 409d5fc45c179721e95cdb59d93f272a364c51f0
