@@ -1,0 +1,37 @@
+{
+  "Version": 1,
+  "WorkspaceRootPath": "D:\\Sripriya\\Employee Travel Booking System\\Employee_Travel_Booking_System_WebApplication\\",
+  "Documents": [
+    {
+      "AbsoluteMoniker": "D:0:0:{919E2ED8-7258-4CC9-8C29-D82D45CC8C78}|Employee_Travel_Booking_System_WebApplication\\Employee_Travel_Booking_System_WebApplication.csproj|d:\\sripriya\\employee travel booking system\\employee_travel_booking_system_webapplication\\employee_travel_booking_system_webapplication\\web.config||{FA3CD31E-987B-443A-9B81-186104E8DAC1}",
+      "RelativeMoniker": "D:0:0:{919E2ED8-7258-4CC9-8C29-D82D45CC8C78}|Employee_Travel_Booking_System_WebApplication\\Employee_Travel_Booking_System_WebApplication.csproj|solutionrelative:employee_travel_booking_system_webapplication\\web.config||{FA3CD31E-987B-443A-9B81-186104E8DAC1}"
+    }
+  ],
+  "DocumentGroupContainers": [
+    {
+      "Orientation": 0,
+      "VerticalTabListWidth": 256,
+      "DocumentGroups": [
+        {
+          "DockedWidth": 200,
+          "SelectedChildIndex": 0,
+          "Children": [
+            {
+              "$type": "Document",
+              "DocumentIndex": 0,
+              "Title": "Web.config",
+              "DocumentMoniker": "D:\\Sripriya\\Employee Travel Booking System\\Employee_Travel_Booking_System_WebApplication\\Employee_Travel_Booking_System_WebApplication\\Web.config",
+              "RelativeDocumentMoniker": "Employee_Travel_Booking_System_WebApplication\\Web.config",
+              "ToolTip": "D:\\Sripriya\\Employee Travel Booking System\\Employee_Travel_Booking_System_WebApplication\\Employee_Travel_Booking_System_WebApplication\\Web.config",
+              "RelativeToolTip": "Employee_Travel_Booking_System_WebApplication\\Web.config",
+              "ViewState": "AQIAADAAAAAAAAAAAAAAADAAAAAVAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000601|",
+              "WhenOpened": "2024-08-22T11:01:44.581Z",
+              "EditorCaption": ""
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}
