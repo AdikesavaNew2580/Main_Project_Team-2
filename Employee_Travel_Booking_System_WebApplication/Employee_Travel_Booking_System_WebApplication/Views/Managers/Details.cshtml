@@ -1,0 +1,30 @@
+﻿@model Employee_Travel_Booking_System_WebApplication.Models.manager
+
+@{
+    ViewBag.Title = "Details";
+    Layout = "~/Views/Shared/_AdminLayout.cshtml";
+}
+
+<h2>Details</h2>
+
+<div>
+    <h4>Manager Information</h4>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt><strong>Name:</strong></dt>
+        <dd>@Html.DisplayFor(model => model.name)</dd>
+
+        <dt><strong>Department:</strong></dt>
+        <dd>@Html.DisplayFor(model => model.department)</dd>
+
+        <dt><strong>Email:</strong></dt>
+        <dd>@Html.DisplayFor(model => model.email)</dd>
+
+        <dt><strong>Password:</strong></dt>
+        <dd>@Html.DisplayFor(model => model.mgr_password)</dd>
+    </dl>
+</div>
+<p>
+    @Html.ActionLink("Edit", "Edit", new { id = Model.managerid }) |
+    @Html.ActionLink("Back to List", "Index")
+</p>

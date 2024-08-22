@@ -1,0 +1,75 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+  <EntityContainerMapping StorageEntityContainer="Employee_Travel_Booking_SystemDB1ModelStoreContainer" CdmEntityContainer="Employee_Travel_Booking_SystemDB1Entities">
+    <EntitySetMapping Name="admins">
+      <EntityTypeMapping TypeName="Employee_Travel_Booking_SystemDB1Model.admin">
+        <MappingFragment StoreEntitySet="admins">
+          <ScalarProperty Name="adminid" ColumnName="adminid" />
+          <ScalarProperty Name="name" ColumnName="name" />
+          <ScalarProperty Name="email" ColumnName="email" />
+          <ScalarProperty Name="admin_password" ColumnName="admin_password" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="employees">
+      <EntityTypeMapping TypeName="Employee_Travel_Booking_SystemDB1Model.employee">
+        <MappingFragment StoreEntitySet="employees">
+          <ScalarProperty Name="employeeid" ColumnName="employeeid" />
+          <ScalarProperty Name="emp_name" ColumnName="emp_name" />
+          <ScalarProperty Name="email" ColumnName="email" />
+          <ScalarProperty Name="emp_password" ColumnName="emp_password" />
+          <ScalarProperty Name="department" ColumnName="department" />
+          <ScalarProperty Name="position" ColumnName="position" />
+          <ScalarProperty Name="hiredate" ColumnName="hiredate" />
+          <ScalarProperty Name="phonenumber" ColumnName="phonenumber" />
+          <ScalarProperty Name="address" ColumnName="address" />
+          <ScalarProperty Name="managerid" ColumnName="managerid" />
+          <ScalarProperty Name="status" ColumnName="status" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="managers">
+      <EntityTypeMapping TypeName="Employee_Travel_Booking_SystemDB1Model.manager">
+        <MappingFragment StoreEntitySet="managers">
+          <ScalarProperty Name="managerid" ColumnName="managerid" />
+          <ScalarProperty Name="name" ColumnName="name" />
+          <ScalarProperty Name="department" ColumnName="department" />
+          <ScalarProperty Name="email" ColumnName="email" />
+          <ScalarProperty Name="mgr_password" ColumnName="mgr_password" />
+          <ScalarProperty Name="status" ColumnName="status" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="travelagents">
+      <EntityTypeMapping TypeName="Employee_Travel_Booking_SystemDB1Model.travelagent">
+        <MappingFragment StoreEntitySet="travelagents">
+          <ScalarProperty Name="agentid" ColumnName="agentid" />
+          <ScalarProperty Name="name" ColumnName="name" />
+          <ScalarProperty Name="email" ColumnName="email" />
+          <ScalarProperty Name="travel_agent_password" ColumnName="travel_agent_password" />
+          <ScalarProperty Name="status" ColumnName="status" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="travelrequests">
+      <EntityTypeMapping TypeName="Employee_Travel_Booking_SystemDB1Model.travelrequest">
+        <MappingFragment StoreEntitySet="travelrequest">
+          <ScalarProperty Name="requestid" ColumnName="requestid" />
+          <ScalarProperty Name="employeename" ColumnName="employeename" />
+          <ScalarProperty Name="employeeemail" ColumnName="employeeemail" />
+          <ScalarProperty Name="employeeid" ColumnName="employeeid" />
+          <ScalarProperty Name="reasonfortravel" ColumnName="reasonfortravel" />
+          <ScalarProperty Name="flightneeded" ColumnName="flightneeded" />
+          <ScalarProperty Name="hotelneeded" ColumnName="hotelneeded" />
+          <ScalarProperty Name="departurecity" ColumnName="departurecity" />
+          <ScalarProperty Name="arrivalcity" ColumnName="arrivalcity" />
+          <ScalarProperty Name="departuredate" ColumnName="departuredate" />
+          <ScalarProperty Name="departuretime" ColumnName="departuretime" />
+          <ScalarProperty Name="additionalinformation" ColumnName="additionalinformation" />
+          <ScalarProperty Name="bookingstatus" ColumnName="bookingstatus" />
+          <ScalarProperty Name="approvalstatus" ColumnName="approvalstatus" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+  </EntityContainerMapping>
+</Mapping>

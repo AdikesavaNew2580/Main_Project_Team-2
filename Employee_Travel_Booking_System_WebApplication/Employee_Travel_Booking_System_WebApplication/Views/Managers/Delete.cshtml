@@ -1,0 +1,36 @@
+﻿@model Employee_Travel_Booking_System_WebApplication.Models.manager
+
+@{
+    ViewBag.Title = "Delete";
+    Layout = "~/Views/Shared/_AdminLayout.cshtml";
+}
+
+<h2>Delete</h2>
+
+<div>
+    <h3>Are you sure you want to delete this manager?</h3>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt><strong>Name</strong></dt>
+        <dd>@Html.DisplayFor(model => model.name)</dd>
+
+        <dt><strong>Department</strong></dt>
+        <dd>@Html.DisplayFor(model => model.department)</dd>
+
+        <dt><strong>Email</strong></dt>
+        <dd>@Html.DisplayFor(model => model.email)</dd>
+
+        <dt><strong>Password</strong></dt>
+        <dd>@Html.DisplayFor(model => model.mgr_password)</dd>
+    </dl>
+
+    @using (Html.BeginForm())
+    {
+        @Html.AntiForgeryToken()
+
+        <div class="form-actions no-color">
+            <input type="submit" value="Delete" class="btn btn-danger" />
+            <button type="button" class="btn btn-default" onclick="history.back()">Cancel</button>
+        </div>
+    }
+</div>

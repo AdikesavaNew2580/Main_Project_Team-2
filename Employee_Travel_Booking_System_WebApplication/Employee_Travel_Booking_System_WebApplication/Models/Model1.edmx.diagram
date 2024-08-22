@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+ <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <edmx:Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <!-- Diagram content (shape and connector positions) -->
+    <edmx:Diagrams>
+      <Diagram DiagramId="472808925a994a4d8a581f44dad23800" Name="Diagram1">
+        <EntityTypeShape EntityType="Employee_Travel_Booking_SystemDB1Model.admin" Width="1.5" PointX="0.75" PointY="5.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="Employee_Travel_Booking_SystemDB1Model.employee" Width="1.5" PointX="3" PointY="1.25" IsExpanded="true" />
+        <EntityTypeShape EntityType="Employee_Travel_Booking_SystemDB1Model.manager" Width="1.5" PointX="0.75" PointY="1.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="Employee_Travel_Booking_SystemDB1Model.travelagent" Width="1.5" PointX="2.75" PointY="5.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="Employee_Travel_Booking_SystemDB1Model.travelrequest" Width="1.5" PointX="5.25" PointY="1" IsExpanded="true" />
+        <AssociationConnector Association="Employee_Travel_Booking_SystemDB1Model.FK__employees__manag__38996AB5" ManuallyRouted="false" />
+        <AssociationConnector Association="Employee_Travel_Booking_SystemDB1Model.FK__travelreq__emplo__4316F928" ManuallyRouted="false" />
+      </Diagram>
+    </edmx:Diagrams>
+  </edmx:Designer>
+</edmx:Edmx>

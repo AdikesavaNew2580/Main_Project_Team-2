@@ -1,0 +1,40 @@
+﻿@model Employee_Travel_Booking_System_WebApplication.Models.travelagent
+
+@{
+    ViewBag.Title = "Details";
+}
+
+<h2>Details</h2>
+
+<div>
+    <h4>travelagent</h4>
+    <hr />
+    <dl class="dl-horizontal">
+
+        <dt><strong> Name:</strong></dt>
+        <dd>
+            @Html.DisplayFor(model => model.name)
+        </dd>
+
+        <dt>
+        <dt><strong> Email:</strong></dt>
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.email)
+        </dd>
+
+        <dt>
+        <dt><strong> Password:</strong></dt>
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.travel_agent_password)
+        </dd>
+
+    </dl>
+</div>
+<p>
+    @Html.ActionLink("Edit", "Edit", new { id = Model.agentid }) |
+    @Html.ActionLink("Back to List", "Index")
+</p>
