@@ -221,8 +221,49 @@
         text-align: center;
         padding: 20px 0;
     }
+
+    /* Helpdesk Button Styles */
+    .helpdesk {
+        position: fixed;
+        top: 50px;
+        right: 50px;
+        background-color: #303f9f;
+        padding: 10px;
+        border-radius: 5px;
+        color: #fff;
+        box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3);
+        z-index: 1000;
+    }
+
+    .helpdesk-link {
+        display: block;
+        color: #fff;
+        text-decoration: none;
+        margin-bottom: 8px;
+        font-size: 1rem;
+        font-weight: bold;
+    }
+
+        .helpdesk-link:hover {
+            color: #ffa726;
+        }
+
+    .icon {
+        margin-right: 8px;
+    }
 </style>
 <body>
+
+    <!-- Helpdesk Button -->
+    <div class="helpdesk">
+        <a href="mailto:Support@infinite.com" class="helpdesk-link">
+            <span class="icon">📧</span> support@example.com
+        </a>
+        <a href="tel:7036775977" class="helpdesk-link">
+            <span class="icon">📞</span> +1 (234) 567-890
+        </a>
+    </div>
+
     <!--<header>-->
     <div class="container">
 
@@ -235,23 +276,23 @@
                     <a href="@Url.Action("Index", "Home")" class="btn">Get Started</a>
                 </div>
             </section>
-            <section class="features" style="background-color: #BACD92; ">
-                <div class="container">
-                    <h2>Key Features</h2>
-                    <div class="feature">
-                        <h3>Request Management</h3>
-                        <p style="color:black">Easily submit, track, and manage travel requests.</p>
+            @*<section class="features" style="background-color: #BACD92; ">
+                    <div class="container">
+                        <h2>Key Features</h2>
+                        <div class="feature">
+                            <h3>Request Management</h3>
+                            <p style="color:black">Easily submit, track, and manage travel requests.</p>
+                        </div>
+                        <div class="feature">
+                            <h3>Admin Panel</h3>
+                            <p style="color:black">Access powerful admin tools to oversee requests and user accounts.</p>
+                        </div>
+                        <div class="feature">
+                            <h3>User Authentication</h3>
+                            <p style="color:black">Secure login system to protect sensitive information.</p>
+                        </div>
                     </div>
-                    <div class="feature">
-                        <h3>Admin Panel</h3>
-                        <p style="color:black">Access powerful admin tools to oversee requests and user accounts.</p>
-                    </div>
-                    <div class="feature">
-                        <h3>User Authentication</h3>
-                        <p style="color:black">Secure login system to protect sensitive information.</p>
-                    </div>
-                </div>
-            </section>
+                </section>*@
             @*<section class="about">
                     <div class="container">
                         <h2>About Us</h2>

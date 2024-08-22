@@ -3,15 +3,18 @@ using System.Collections.Generic;
 using System.Data.Entity;
 using System.Linq;
 using System.Net;
+using System.Threading.Tasks;
 using System.Web;
 using System.Web.Mvc;
 using Employee_Travel_Booking_System_WebApplication.Models;
+using Employee_Travel_Booking_System_WebApplication.Services;
 
 namespace Employee_Travel_Booking_App.Controllers.EmployeeMenu
 {
     public class TravelRequestsController : Controller
     {
         private Employee_Travel_Booking_SystemDB1Entities db = new Employee_Travel_Booking_SystemDB1Entities();
+        //private EmailService _emailService = new EmailService();
 
         // GET: travelrequests
         public ActionResult Index()
@@ -136,5 +139,12 @@ namespace Employee_Travel_Booking_App.Controllers.EmployeeMenu
 
             return RedirectToAction("Index");
         }
+
+
+        // email service
+
+        
+
+
     }
 }

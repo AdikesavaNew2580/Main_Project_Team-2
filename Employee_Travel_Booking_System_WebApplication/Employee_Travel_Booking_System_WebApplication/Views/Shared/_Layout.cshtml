@@ -6,6 +6,22 @@
     <title>@ViewBag.Title</title>
     @Styles.Render("~/Content/css")
     @Scripts.Render("~/bundles/modernizr")
+<style>
+        /* Ensure the navbar has a height */
+        .navbar {
+            height: 60px; /* Adjust based on your design */
+        }
+
+        /* Style for the navbar brand logo */
+        .navbar-brand img {
+            max-height: 100%; /* Ensures the logo scales according to the navbar's height */
+            width: auto; /* Maintain aspect ratio */
+            display: block; /* Remove any extra space below the image */
+        }
+
+   
+
+</style>
 </head>
 <body>
     <div class="navbar navbar-inverse navbar-fixed-top">
@@ -16,7 +32,9 @@
                     <span class="icon-bar"></span>
                     <span class="icon-bar"></span>
                 </button>
-                @Html.ActionLink("Employee_Travel_Booking", "Index", "Home", new { area = "" }, new { @class = "navbar-brand" })
+                <a class="navbar-brand" href="@Url.Action("Index", "Home")">
+                    <img src="/"C:\Users\adikesavat\Pictures\Images\EmpXLogo.png"" alt="EmpX Travel"/>
+                </a>
             </div>
             <div class="navbar-collapse collapse">
                 <ul class="nav navbar-nav">
@@ -30,10 +48,9 @@
         @RenderBody()
         <hr />
         <footer>
-            <p>&copy; @DateTime.Now.Year - My ASP.NET Application</p>
+            <p>&copy; @DateTime.Now.Year - My ASP.NET EmpX Travel Booking Application</p>
         </footer>
     </div>
-
     @Scripts.Render("~/bundles/jquery")
     @Scripts.Render("~/bundles/bootstrap")
     @RenderSection("scripts", required: false)
