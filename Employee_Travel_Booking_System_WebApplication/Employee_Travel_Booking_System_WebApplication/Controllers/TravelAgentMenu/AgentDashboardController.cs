@@ -1,19 +1,25 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Threading.Tasks;
 using System.Web;
 using System.Web.Mvc;
 using Employee_Travel_Booking_System_WebApplication.Models;
+using Employee_Travel_Booking_System_WebApplication.Services;
 
 namespace Employee_Travel_Booking_App.Controllers.TravelAgentMenu
 {
     public class AgentDashboardController : Controller
     {
         private readonly Employee_Travel_Booking_SystemDB1Entities db;
+        private readonly SmsService _smsService;
 
         public AgentDashboardController()
         {
             db = new Employee_Travel_Booking_SystemDB1Entities();
+
+            // Initialize the SmsService with your Twilio credentials
+            _smsService = new SmsService("ACd8b56e926f90382215ce59b78675aac6", "f9eec0c57c4424a96216915ff1fb8996", "+19044400460");
         }
 
 
@@ -29,29 +35,32 @@ namespace Employee_Travel_Booking_App.Controllers.TravelAgentMenu
 
 
 
+        // Action to update the status of a travel request
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult UpdateStatus(int requestId, string status)
+        public async Task<ActionResult> UpdateStatus(int requestId, string status)
         {
             try
             {
-                // Check if the user is logged in
-
-
-                // Retrieve the travel request by ID
                 var travelRequest = db.travelrequests.FirstOrDefault(tr => tr.requestid == requestId);
-
                 if (travelRequest == null)
                 {
                     throw new Exception("Travel request not found.");
                 }
 
-                // Update the booking status based on availability
                 travelRequest.bookingstatus = status;
-
                 db.SaveChanges();
-
                 TempData["SuccessMessage"] = "Booking status updated successfully.";
+
+                if (status.Equals("Confirmed", StringComparison.OrdinalIgnoreCase))
+                {
+                    var employee = db.employees.FirstOrDefault(e => e.employeeid == travelRequest.employeeid);
+                    if (employee != null)
+                    {
+                        string message = $"Dear {employee.emp_name}, your travel request (ID: {requestId}) has been confirmed. You will get further Details Soon.... Thank you";
+                        await _smsService.SendSmsAsync(employee.phonenumber, message);
+                    }
+                }
             }
             catch (Exception ex)
             {

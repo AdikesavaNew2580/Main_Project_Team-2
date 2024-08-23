@@ -6,27 +6,52 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Employee Travel Booking System</title>
+    @*<title>Employee Travel Booking System</title>*@
     <style>
+        /* Global Styles */
+        body {
+            font-family: 'Arial', sans-serif;
+            color: #333;
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            background-color: #f4f4f9;
+        }
+
+        /* Header Styles */
+        header {
+            background-color: #007bff;
+            color: white;
+            padding: 20px 0;
+            text-align: center;
+        }
+
+            header h1 {
+                margin: 0;
+                font-size: 2rem;
+            }
+
         /* Body Section Styles */
         .welcome-section {
             text-align: center;
-            margin-bottom: 40px;
+            margin: 40px auto;
+            max-width: 800px;
         }
 
         .welcome-message {
-            font-size: 24px;
+            font-size: 2rem;
+            font-weight: bold;
             margin-bottom: 20px;
-            margin-top: 20px;
         }
 
         .description {
-            font-size: 16px;
-            color: #666;
+            font-size: 1rem;
+            color: #555;
             margin-bottom: 30px;
+            line-height: 1.6;
         }
 
-        /* Body Section Styles */
+        /* Features Section Styles */
         .features {
             display: flex;
             flex-wrap: wrap;
@@ -35,42 +60,43 @@
         }
 
         .feature-card {
-            width: 250px;
-            background-color: #f9f9f9;
-            border-radius: 10px;
+            width: 280px;
+            background-color: #fff;
+            border-radius: 12px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
             padding: 20px;
             text-align: center;
-            cursor: pointer; /* Make the cards clickable */
             transition: transform 0.3s, box-shadow 0.3s;
-            text-decoration: none; /* Remove underline from feature cards */
+            text-decoration: none;
+            color: #333;
+            overflow: hidden;
         }
 
             .feature-card:hover {
-                transform: translateY(-5px);
-                box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
-                text-decoration: none; /* Remove underline on hover */
+                transform: translateY(-8px);
+                box-shadow: 0 8px 16px rgba(0, 0, 0, 0.15);
             }
 
         .feature-icon {
-            font-size: 36px;
-            margin-bottom: 10px;
+            font-size: 40px;
+            margin-bottom: 15px;
         }
 
         .feature-title {
-            font-size: 18px;
+            font-size: 1.25rem;
             font-weight: bold;
             margin-bottom: 10px;
         }
 
         .feature-description {
-            font-size: 14px;
-            color: #666;
+            font-size: 0.875rem;
+            color: #777;
         }
 
         /* Button Styles */
-        .quick-links {
+        .action-buttons {
             text-align: center;
-            margin-bottom: 40px;
+            margin-top: 30px;
         }
 
         .action-button {
@@ -78,26 +104,24 @@
             background-color: #007bff;
             color: #fff;
             text-decoration: none;
-            padding: 15px 30px;
-            border-radius: 5px;
-            font-size: 18px;
+            padding: 15px 25px;
+            border-radius: 8px;
+            font-size: 1rem;
             margin: 0 10px;
+            transition: background-color 0.3s, transform 0.3s;
         }
 
             .action-button:hover {
                 background-color: #0056b3;
+                transform: translateY(-3px);
             }
 
         /* Footer Section Styles */
         footer {
             background-color: #333;
             color: #fff;
-            padding: 20px 0;
+            padding: 20px;
             text-align: center;
-        }
-
-        a div {
-            text-decoration: none;
         }
 
         .footer-links {
@@ -108,49 +132,59 @@
                 color: #fff;
                 text-decoration: none;
                 margin: 0 10px;
+                font-size: 0.875rem;
             }
 
                 .footer-links a:hover {
-                    text-decoration: none;
+                    text-decoration: underline;
                 }
     </style>
 </head>
 <body>
+    <header>
+        <h1>Employee Travel Booking System</h1>
+    </header>
 
-    <!-- Body Section -->
     <section class="welcome-section">
         <div class="welcome-message">Welcome to the Employee Travel Booking System</div>
-        <div class="description">
+        @*<div class="description">
             Employee Travel Booking Application allows employees to raise requests for booking business travel tickets.
             This application automates the process of travel requests, making it convenient for employees, managers, and travel agents.
-        </div>
+        </div>*@
         <div class="features">
             <!-- Admin Feature -->
             <a href="@Url.Action("Login", "AdminLogin")" class="feature-card">
-                <div class="feature-icon">👩‍💼</div>
+                <div class="feature-icon">👔</div>
                 <div class="feature-title">Admin</div>
                 <div class="feature-description">Manage employees, managers, and travel agents.</div>
             </a>
             <!-- Employee Feature -->
             <a href="@Url.Action("Login", "EmployeeLogin")" class="feature-card">
-                <div class="feature-icon">👨‍💼</div>
+                <div class="feature-icon">🧑‍💼</div>
                 <div class="feature-title">Employee</div>
                 <div class="feature-description">Submit travel requests and check status.</div>
             </a>
             <!-- Manager Feature -->
             <a href="@Url.Action("ManagerLogin", "ManagerLogin")" class="feature-card">
-                <div class="feature-icon">👩‍💼‍🔧</div>
+                <div class="feature-icon">🧑‍💼‍🛠️</div>
                 <div class="feature-title">Manager</div>
                 <div class="feature-description">Approve or reject travel requests.</div>
             </a>
             <!-- Travel Agent Feature -->
             <a href="@Url.Action("Login", "AgentLogin")" class="feature-card">
-                <div class="feature-icon">✈️</div>
+                <div class="feature-icon">🌍</div>
                 <div class="feature-title">Travel Agent</div>
                 <div class="feature-description">Confirm bookings based on availability.</div>
             </a>
         </div>
     </section>
 
+    @*<footer>
+        <div class="footer-links">
+            <a href="#">Privacy Policy</a>
+            <a href="#">Terms of Service</a>
+            <a href="#">Contact Us</a>
+        </div>
+    </footer>*@
 </body>
 </html>

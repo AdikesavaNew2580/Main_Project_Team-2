@@ -19,12 +19,13 @@ create table employees (
 
 INSERT INTO employees (emp_name, email, emp_password, department, position, hiredate, phonenumber, address, managerid)
 VALUES
-    ('Adikesava', 'adikesava.thummala@infinite.com', 'password', 'Software', 'Software Engineer', '2024-05-30', '7036775977', 'Chennai', 1025460),
-    ('SriPriya', 'sripriya.ragunath@infinite.com', 'password', 'Development', 'Software Developer', '2024-05-30', '9994344812', 'Bengaluru', 1025461),
-	('Sahana', 'sahana.navali@infinite.com', 'password', 'Testing', 'Associate Software Tester', '2024-05-30', '7892605685', 'Bengaluru', 1025462),
-	('Vijendra', 'vijendra.tripathi@infinite.com', 'password', 'Marketing', 'Marketing Manager', '2024-05-30', '8707794129', 'Chennai', 1025460),
-	('Uhalatha', 'palepu.uhalatha@infinite.com', 'password', 'Sales', 'Sale Manager', '2024-05-30', '7093380920', 'Chennai', 1025460),
-	('Nithin', 'nithin.jagadeesh@infinite.com', 'password', 'Support', 'System Engineer', '2024-05-30', '8904062277', 'Bengaluru', 1025463)
+    ('Adikesava', 'adikesava.thummala@infinite.com', 'password', 'Software', 'Software Engineer', '2024-05-30', '+917036775977', 'Chennai', 1025460),
+    ('SriPriya', 'sripriya.ragunath@infinite.com', 'password', 'Development', 'Software Developer', '2024-05-30', '+919994344812', 'Bengaluru', 1025461),
+	('Sahana', 'sahana.navali@infinite.com', 'password', 'Testing', 'Associate Software Tester', '2024-05-30', '+917892605685', 'Bengaluru', 1025462),
+	('Vijendra', 'vijendra.tripathi@infinite.com', 'password', 'Marketing', 'Marketing Manager', '2024-05-30', '+918707794129', 'Chennai', 1025460),
+	('Uhalatha', 'palepu.uhalatha@infinite.com', 'password', 'Sales', 'Sale Manager', '2024-05-30', '+917093380920', 'Chennai', 1025460),
+	('Nithin', 'nithin.jagadeesh@infinite.com', 'password', 'Support', 'System Engineer', '2024-05-30', '+918904062277', 'Bengaluru', 1025463)
+
 
 
 
