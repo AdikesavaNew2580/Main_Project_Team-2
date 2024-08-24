@@ -81,6 +81,8 @@
                             <td>@Html.DisplayFor(modelItem => item.approvalstatus)</td>
                             <td>
                                 @Html.ActionLink("Details", "Details", new { id = item.requestid }, new { @class = "btn btn-info btn-sm" })
+                                <!-- Example download button -->
+                                <a href="@Url.Action("DownloadDetailsPDF", "TravelRequests", new { id = item.requestid })" class="btn btn-primary">Download PDF</a>
                             </td>
                         </tr>
                     }

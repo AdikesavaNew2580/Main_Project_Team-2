@@ -1,6 +1,4 @@
-﻿@{
-    ViewBag.Title = "Index";
-}
+﻿@{ ViewBag.Title = "Index"; }
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -17,7 +15,6 @@
             box-sizing: border-box;
             background-color: #f4f4f9;
         }
-
         /* Header Styles */
         header {
             background-color: #007bff;
@@ -30,7 +27,6 @@
                 margin: 0;
                 font-size: 2rem;
             }
-
         /* Body Section Styles */
         .welcome-section {
             text-align: center;
@@ -50,17 +46,17 @@
             margin-bottom: 30px;
             line-height: 1.6;
         }
-
         /* Features Section Styles */
         .features {
-            display: flex;
-            flex-wrap: wrap;
-            justify-content: center;
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
             gap: 20px;
+            justify-content: center;
+            max-width: 960px;
+            margin: 0 auto;
         }
 
         .feature-card {
-            width: 280px;
             background-color: #fff;
             border-radius: 12px;
             box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
@@ -92,30 +88,6 @@
             font-size: 0.875rem;
             color: #777;
         }
-
-        /* Button Styles */
-        .action-buttons {
-            text-align: center;
-            margin-top: 30px;
-        }
-
-        .action-button {
-            display: inline-block;
-            background-color: #007bff;
-            color: #fff;
-            text-decoration: none;
-            padding: 15px 25px;
-            border-radius: 8px;
-            font-size: 1rem;
-            margin: 0 10px;
-            transition: background-color 0.3s, transform 0.3s;
-        }
-
-            .action-button:hover {
-                background-color: #0056b3;
-                transform: translateY(-3px);
-            }
-
         /* Footer Section Styles */
         footer {
             background-color: #333;
@@ -144,13 +116,9 @@
     <header>
         <h1>Employee Travel Booking System</h1>
     </header>
-
     <section class="welcome-section">
-        <div class="welcome-message">Welcome to the Employee Travel Booking System</div>
-        @*<div class="description">
-            Employee Travel Booking Application allows employees to raise requests for booking business travel tickets.
-            This application automates the process of travel requests, making it convenient for employees, managers, and travel agents.
-        </div>*@
+        <div class="welcome-message">Welcome to the EmpX Travel Booking System</div>
+        <div class="description">Employee Travel Booking Application allows employees to raise requests for booking business travel tickets. This application automates the process of travel requests, making it convenient for employees, managers, and travel agents.</div>
         <div class="features">
             <!-- Admin Feature -->
             <a href="@Url.Action("Login", "AdminLogin")" class="feature-card">
@@ -176,15 +144,38 @@
                 <div class="feature-title">Travel Agent</div>
                 <div class="feature-description">Confirm bookings based on availability.</div>
             </a>
+            <!-- Incident Management Feature -->
+            <a href="@Url.Action("Index", "Home")" class="feature-card">
+                <div class="feature-icon">🚨</div>
+                <div class="feature-title">Incident Management</div>
+                <div class="feature-description">Manage and resolve incidents.</div>
+            </a>
+            <!-- Service Management Feature -->
+            <a href="@Url.Action("Index", "Home")" class="feature-card">
+                <div class="feature-icon">🛠️</div>
+                <div class="feature-title">Service Management</div>
+                <div class="feature-description">Manage and monitor services.</div>
+            </a>
+            <!-- Project SkillPack Feature -->
+            <a href="@Url.Action("Index", "Home")" class="feature-card">
+                <div class="feature-icon">📚</div>
+                <div class="feature-title">Project SkillPack</div>
+                <div class="feature-description">Manage and assign project skills.</div>
+            </a>
+            <!-- Visa Management Feature -->
+            <a href="@Url.Action("Index", "Home")" class="feature-card">
+                <div class="feature-icon">✈️</div>
+                <div class="feature-title">Visa Management</div>
+                <div class="feature-description">Manage visa requests and approvals.</div>
+            </a>
+            <!-- Project Management Feature -->
+            <a href="@Url.Action("Index", "Home")" class="feature-card">
+                <div class="feature-icon">📁</div>
+                <div class="feature-title">Project Management</div>
+                <div class="feature-description">Oversee and manage project activities.</div>
+            </a>
         </div>
     </section>
 
-    @*<footer>
-        <div class="footer-links">
-            <a href="#">Privacy Policy</a>
-            <a href="#">Terms of Service</a>
-            <a href="#">Contact Us</a>
-        </div>
-    </footer>*@
 </body>
 </html>

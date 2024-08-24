@@ -7,14 +7,17 @@ using System.Threading.Tasks;
 using System.Web;
 using System.Web.Mvc;
 using Employee_Travel_Booking_System_WebApplication.Models;
-using Employee_Travel_Booking_System_WebApplication.Services;
+using System.IO;
+using iTextSharp.text;
+using iTextSharp.text.pdf;
+
 
 namespace Employee_Travel_Booking_App.Controllers.EmployeeMenu
 {
     public class TravelRequestsController : Controller
     {
         private Employee_Travel_Booking_SystemDB1Entities db = new Employee_Travel_Booking_SystemDB1Entities();
-        //private EmailService _emailService = new EmailService();
+        
 
         // GET: travelrequests
         public ActionResult Index()
@@ -140,10 +143,50 @@ namespace Employee_Travel_Booking_App.Controllers.EmployeeMenu
             return RedirectToAction("Index");
         }
 
+        // GET: travelrequests/DownloadDetailsPDF/5
+        public ActionResult DownloadDetailsPDF(int id)
+        {
+            var travelRequest = db.travelrequests.Find(id);
+            if (travelRequest == null)
+            {
+                return HttpNotFound();
+            }
 
-        // email service
+            // Create a new PDF document
+            using (var memoryStream = new MemoryStream())
+            {
+                var document = new Document(PageSize.A4);
+                PdfWriter.GetInstance(document, memoryStream);
 
-        
+                document.Open();
+
+                // Add content to the PDF
+                document.Add(new Paragraph("Status of Your Travel Request Details are Available Below"));
+                document.Add(new Paragraph($"Travel Request Details for Request Id: {travelRequest.requestid} are as Below"));
+                document.Add(new Paragraph($"Employee ID: {travelRequest.employeeid}"));
+                document.Add(new Paragraph($"Employee Name: {travelRequest.employeename}"));
+                document.Add(new Paragraph($"Employee Mail ID: {travelRequest.employeeemail}"));
+                document.Add(new Paragraph($"Reason for Travel: {travelRequest.reasonfortravel}"));
+                document.Add(new Paragraph($"Departure Date: {travelRequest.departuredate?.ToString("dd-MM-yyyy") ?? "N/A"}"));
+                document.Add(new Paragraph($"Departure City: {travelRequest.departurecity}"));
+                document.Add(new Paragraph($"Arrival City: {travelRequest.arrivalcity}"));
+                document.Add(new Paragraph($"Approval Status: {travelRequest.approvalstatus}"));
+                document.Add(new Paragraph($"Booking Status: {travelRequest.bookingstatus}"));
+
+                document.Close();
+
+                // Return the PDF as a file download
+                var pdfBytes = memoryStream.ToArray();
+                return File(pdfBytes, "application/pdf", "TravelRequestDetails.pdf");
+            }
+        }
+
+
+
+
+
+
+
 
 
     }

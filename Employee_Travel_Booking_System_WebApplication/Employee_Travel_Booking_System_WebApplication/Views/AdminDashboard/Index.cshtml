@@ -11,6 +11,8 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link href="https://fonts.googleapis.com/css2?family=Nunito:ital,wght@0,200..1000;1,200..1000&display=swap" rel="stylesheet">
+    <!-- Include Font Awesome CDN -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
     <style>
         * {
             margin: 0;
@@ -54,7 +56,7 @@
             }
 
         .card-header {
-            background-color: #1e90ff; /* Blue header */
+            background-color: black; /* Card header color */
             color: white;
             font-weight: bold;
             border-radius: 10px 10px 0 0;
@@ -65,12 +67,25 @@
         .card-content {
             padding: 20px;
             background-color: #fff; /* White background */
+            position: relative; /* Relative positioning for icon positioning */
+            text-align: center; /* Center align text and icons */
         }
+
+            .card-content i {
+                font-size: 30px; /* Icon size */
+                color: #28a745; /* Green color for icons */
+                margin-bottom: 10px; /* Space between icon and paragraph */
+            }
+
+            .card-content p {
+                margin: 0; /* Remove default margin */
+                font-size: 16px; /* Adjust font size */
+            }
 
         .btn {
             border-radius: 5px;
             padding: 10px 20px;
-            background-color: #1e90ff; /* Blue button */
+            background-color: #28a745; /* Green button */
             color: white;
             border: none;
             cursor: pointer;
@@ -80,7 +95,7 @@
         }
 
             .btn:hover {
-                background-color: #007bff; /* Darker blue on hover */
+                background-color: #218838; /* Darker green on hover */
             }
 
         /* Footer Styles */
@@ -109,33 +124,93 @@
 
     <div class="container text-center card-container">
 
+        <!-- Existing Cards -->
         <div class="card">
-            <div class="card-header" style="background-color:black" ;>
+            <div class="card-header">
                 Employee Management
             </div>
             <div class="card-content">
-                <p>Manage employees, Assign Manager</p>
+                <i class="fas fa-users"></i> <!-- Icon for Employee Management -->
+                <p>Manage employees, Assign Mngr</p>
                 <a href="@Url.Action("Index", "Employees")" class="btn">Manage Employees</a>
             </div>
         </div>
 
         <div class="card">
-            <div class="card-header" style="background-color:black;">
+            <div class="card-header">
                 Travel Agents Management
             </div>
             <div class="card-content">
+                <i class="fas fa-briefcase"></i> <!-- Icon for Travel Agents Management -->
                 <p>Add and Edit Travel Agents</p>
                 <a href="@Url.Action("Index", "TravelAgents")" class="btn">Manage Travel Agents</a>
             </div>
         </div>
 
         <div class="card">
-            <div class="card-header" style="background-color:black;">
+            <div class="card-header">
                 Manager Management
             </div>
             <div class="card-content">
+                <i class="fas fa-user-cog"></i> <!-- Updated icon for Manager Management -->
                 <p>Add, Edit and Soft delete Manager</p>
                 <a href="@Url.Action("Index", "Managers")" class="btn">Manage Manager</a>
+            </div>
+        </div>
+
+        <!-- New Cards -->
+        <div class="card">
+            <div class="card-header">
+                User Roles Management
+            </div>
+            <div class="card-content">
+                <i class="fas fa-user-shield"></i> <!-- Icon for User Roles Management -->
+                <p>Manage user roles and permissions</p>
+                <a href="@Url.Action("Index", "AdminDashboard")" class="btn">Manage Roles</a>
+            </div>
+        </div>
+
+        <div class="card">
+            <div class="card-header">
+                Reports and Analytics
+            </div>
+            <div class="card-content">
+                <i class="fas fa-chart-line"></i> <!-- Icon for Reports and Analytics -->
+                <p>View and analyze reports</p>
+                <a href="@Url.Action("Index", "AdminDashboard")" class="btn">View Reports</a>
+            </div>
+        </div>
+
+        <div class="card">
+            <div class="card-header">
+                System Settings
+            </div>
+            <div class="card-content">
+                <i class="fas fa-cogs"></i> <!-- Icon for System Settings -->
+                <p>Configure system settings</p>
+                <a href="@Url.Action("Index", "AdminDashboard")" class="btn">Configure Settings</a>
+            </div>
+        </div>
+
+        <div class="card">
+            <div class="card-header">
+                Notifications
+            </div>
+            <div class="card-content">
+                <i class="fas fa-bell"></i> <!-- Icon for Notifications -->
+                <p>View and manage notifications</p>
+                <a href="@Url.Action("Index", "AdminDashboard")" class="btn">Manage Notifications</a>
+            </div>
+        </div>
+
+        <div class="card">
+            <div class="card-header">
+                Audit Logs
+            </div>
+            <div class="card-content">
+                <i class="fas fa-clipboard-list"></i> <!-- Icon for Audit Logs -->
+                <p>Track system activities</p>
+                <a href="@Url.Action("Index", "AdminDashboard")" class="btn">View Logs</a>
             </div>
         </div>
 
@@ -150,3 +225,7 @@
     <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
 </body>
 </html>
+
+
+
+

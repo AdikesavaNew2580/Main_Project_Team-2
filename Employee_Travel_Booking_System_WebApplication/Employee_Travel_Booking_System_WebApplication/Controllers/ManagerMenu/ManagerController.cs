@@ -72,5 +72,17 @@ namespace Employee_Travel_Booking_App.Controllers.ManagerMenu
             var requestHistory = db.travelrequests.Where(r => r.employeeid == r.employeeid && r.employee.managerid == managerId).ToList();
             return View(requestHistory);
         }
+
+        // GET: Manager/ViewEmployees
+        public ActionResult ViewEmployees()
+        {
+            // Get the manager's login ID from the session
+            int? managerId = Session["ManagerId"] as int?;
+
+            // Retrieve the list of employees who report to this manager
+            var employees = db.employees.Where(e => e.managerid == managerId).ToList();
+            return View(employees);
+        }
+
     }
 }
