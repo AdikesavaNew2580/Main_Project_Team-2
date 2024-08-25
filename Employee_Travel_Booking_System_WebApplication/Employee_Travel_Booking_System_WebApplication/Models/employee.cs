@@ -35,7 +35,5 @@ namespace Employee_Travel_Booking_System_WebApplication.Models
         public virtual manager manager { get; set; }
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<travelrequest> travelrequests { get; set; }
-        //public string ResetToken { get; set; }
-        //public Nullable<System.DateTime> ResetTokenExpiry { get; set; }
     }
 }

@@ -21,7 +21,7 @@
         line-height: 1.6;
         background-color: #bb1fde;
         color: #333;
-        background: url(https://plus.unsplash.com/premium_photo-1672234253746-99ac19181f0b?w=500&auto=format&fit=crop&q=60&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8OXx8c2t5fGVufDB8fDB8fHww);
+        background: url(/Gallery/Infinite.jpg);
         background-repeat: no-repeat;
         background-size: cover;
     }
@@ -29,7 +29,8 @@
     .container {
         max-width: 1100px;
         margin: auto;
-        padding: 0 20px;
+        padding: 0 50px;
+        position: relative; /* for logo */
     }
 
     header {
@@ -79,6 +80,8 @@
     .container p {
         color: #333; /* Change to your desired text color */
     }
+
+    
 
     .hero p {
         font-size: 1.3rem; /* Increased description text size */
@@ -255,15 +258,17 @@
         margin-right: 8px;
     }
 
-    /*body {
-        font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-        line-height: 1.6;
-        background-image: url('"C:\Users\adikesavat\Pictures\Images\StartBackground.jpg"');*/ /* Add your background image here */
-        /*background-size: cover;
-        background-position: center;
-        background-attachment: fixed;*/ /* Optional: This keeps the background image fixed while scrolling */
-        /*color: #333;*/
+    /* Logo Styling */
+    .logo {
+        position: absolute;
+        top: 10px;
+        left: 10px;
+        width: 100px; /* Adjust as needed */
+        height: auto; /* Maintain aspect ratio */
+        z-index: 1000; /* Ensure it sits above other elements */
     }
+
+   
 
 </style>
 <body>
@@ -278,22 +283,30 @@
         </a>
     </div>
 
+    <!-- Logo -->
+    <img src="~/Gallery/InfiniteLogo.png" alt="Infinite Computer Solutions" class="logo" style="margin-top:50px; height:150px;width:300px;background-image:inherit;">
+
+
+
     <!--<header>-->
-    <div class="container">
+    @*<div class="container">*@
 
         <!--</header>-->
         <main>
             <section class="hero">
-                <div class="container">
-                    <h2>Welcome to Employee Travel Booking System</h2>
-                    <p>Easily manage and Track your travel requests with our user-friendly platform.</p>
-                    <p>Stay Updated on the Status of Your Travel request with real-time notification. Weather your Request is Approved or Rejected</p>
+               
+                <div class="container" style="color:black">
+                    <h2 style="color:ThreeDDarkShadow;">Welcome to EmpX</h2>
+                    <h5>Easily manage and Track your travel requests with our user-friendly platform.</h5>
+                    <h5>Stay Updated on the Status of Your Travel request with real-time notification. Weather your Request is Approved or Rejected</h5>
+                    <br />
+                    <br />
                     <a href="@Url.Action("Index", "Home")" class="btn">Get Started</a>
                 </div>
             </section>
-           
+
 
         </main>
-        
+
 </body>
 </html>

@@ -65,6 +65,7 @@
                         <th>Reason for Travel</th>
                         <th>Departure Date</th>
                         <th>Status</th>
+                        <th>Booking Status</th>
                         <th>Actions</th>
                     </tr>
 
@@ -74,17 +75,18 @@
                         (r.approvalstatus == "Approved" && (r.bookingstatus == "Confirmed" || r.bookingstatus == "Not available"))
                             ))
                     {
-                        <tr>
-                            <td>@Html.DisplayFor(modelItem => item.requestid)</td>
-                            <td>@Html.DisplayFor(modelItem => item.reasonfortravel)</td>
-                            <td style="white-space: nowrap;">@(item.departuredate.HasValue ? item.departuredate.Value.ToString("dd-MM-yyyy") : "")</td>
-                            <td>@Html.DisplayFor(modelItem => item.approvalstatus)</td>
-                            <td>
-                                @Html.ActionLink("Details", "Details", new { id = item.requestid }, new { @class = "btn btn-info btn-sm" })
-                                <!-- Example download button -->
-                                <a href="@Url.Action("DownloadDetailsPDF", "TravelRequests", new { id = item.requestid })" class="btn btn-primary">Download PDF</a>
-                            </td>
-                        </tr>
+                    <tr>
+                        <td>@Html.DisplayFor(modelItem => item.requestid)</td>
+                        <td>@Html.DisplayFor(modelItem => item.reasonfortravel)</td>
+                        <td style="white-space: nowrap;">@(item.departuredate.HasValue ? item.departuredate.Value.ToString("dd-MM-yyyy") : "")</td>
+                        <td>@Html.DisplayFor(modelItem => item.approvalstatus)</td>
+                        <td>@Html.DisplayFor(modelItem => item.bookingstatus)</td>
+                        <td>
+                            @Html.ActionLink("Details", "Details", new { id = item.requestid }, new { @class = "btn btn-info btn-sm" })
+                            <!-- Example download button -->
+                            <a href="@Url.Action("DownloadDetailsPDF", "TravelRequests", new { id = item.requestid })" class="btn btn-primary">Download PDF</a>
+                        </td>
+                    </tr>
                     }
                 </tbody>
             </table>

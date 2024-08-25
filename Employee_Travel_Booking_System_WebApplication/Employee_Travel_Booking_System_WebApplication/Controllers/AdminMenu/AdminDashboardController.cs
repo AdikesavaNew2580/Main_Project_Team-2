@@ -8,6 +8,7 @@ using Employee_Travel_Booking_System_WebApplication.Models;
 namespace Employee_Travel_Booking_System_WebApplication.Controllers.AdminMenu
 {
     [Authorize]
+    
     public class AdminDashboardController : Controller
     {
         // GET: AdminDashboard

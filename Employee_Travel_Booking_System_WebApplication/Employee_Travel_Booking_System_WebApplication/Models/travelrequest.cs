@@ -28,7 +28,9 @@ namespace Employee_Travel_Booking_System_WebApplication.Models
         public string additionalinformation { get; set; }
         public string bookingstatus { get; set; }
         public string approvalstatus { get; set; }
-    
+
+        public string IdentityProofPath { get; set; }
+
         public virtual employee employee { get; set; }
     }
 }

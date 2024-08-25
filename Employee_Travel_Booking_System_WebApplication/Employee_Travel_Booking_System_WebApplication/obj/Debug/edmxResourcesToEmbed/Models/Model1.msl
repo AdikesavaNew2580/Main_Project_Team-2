@@ -54,6 +54,7 @@
     <EntitySetMapping Name="travelrequests">
       <EntityTypeMapping TypeName="Employee_Travel_Booking_SystemDB1Model.travelrequest">
         <MappingFragment StoreEntitySet="travelrequest">
+          <ScalarProperty Name="IdentityProofPath" ColumnName="IdentityProofPath" />
           <ScalarProperty Name="requestid" ColumnName="requestid" />
           <ScalarProperty Name="employeename" ColumnName="employeename" />
           <ScalarProperty Name="employeeemail" ColumnName="employeeemail" />

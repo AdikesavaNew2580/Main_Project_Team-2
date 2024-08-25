@@ -4,107 +4,130 @@
 
 <h2 class="text-center mb-4">Travel Request</h2>
 
-@using (Html.BeginForm())
+@using (Html.BeginForm(null, null, FormMethod.Post, new { enctype = "multipart/form-data" }))
 {
-@Html.AntiForgeryToken()
+    @Html.AntiForgeryToken()
 
-<div class="form-horizontal">
-    <hr />
+    <div class="form-horizontal">
+        <hr />
 
-    <div class="form-group">
-        @Html.LabelFor(model => model.reasonfortravel, "Travel Reason:", htmlAttributes: new { @class = "control-label col-md-2" })
-        <div class="col-md-10">
-            @Html.EditorFor(model => model.reasonfortravel, new { htmlAttributes = new { @class = "form-control", required = "required", placeholder = "Enter your travel reason here" } })
-            @Html.ValidationMessageFor(model => model.reasonfortravel, "", new { @class = "text-danger" })
+        <!-- Travel Reason -->
+        <div class="form-group">
+            @Html.LabelFor(model => model.reasonfortravel, "Travel Reason:", htmlAttributes: new { @class = "col-md-2 col-form-label" })
+            <div class="col-md-10">
+                @Html.DropDownListFor(model => model.reasonfortravel,
+                    new SelectList(new[] {
+                        new { Value = "Auditing", Text = "Auditing" },
+                        new { Value = "Business Meetings", Text = "Business Meetings" },
+                        new { Value = "Client Meeting", Text = "Client Meeting" },
+                        new { Value = "Conference", Text = "Conference" },
+                        new { Value = "On site Transfer", Text = "On site Transfer" },
+                        new { Value = "Site Visit", Text = "Site Visit" },
+                        new { Value = "Project Related", Text = "Project Related" },
+                        new { Value = "Training", Text = "Training" },
+                        new { Value = "Other", Text = "Other" }
+                    }, "Value", "Text"), "-- Select a Reason --",
+                    new { @class = "form-control", required = "required" })
+                @Html.ValidationMessageFor(model => model.reasonfortravel, "", new { @class = "text-danger" })
+            </div>
         </div>
-    </div>
 
-    <div class="form-group">
-        @Html.LabelFor(model => model.flightneeded, "Need Flight? :", htmlAttributes: new { @class = "control-label col-md-2" })
-        <div class="col-md-10">
-            @Html.DropDownListFor(model => model.flightneeded, new SelectList(new[] { "Yes", "No" }), "-- Select --", new { @class = "form-control", required = "required" })
-            @Html.ValidationMessageFor(model => model.flightneeded, "", new { @class = "text-danger" })
+        <!-- Need Flight? -->
+        <div class="form-group">
+            @Html.LabelFor(model => model.flightneeded, "Need Flight? :", htmlAttributes: new { @class = "col-md-2 col-form-label" })
+            <div class="col-md-10">
+                @Html.DropDownListFor(model => model.flightneeded, new SelectList(new[] { "Yes", "No" }), "-- Select --", new { @class = "form-control", required = "required" })
+                @Html.ValidationMessageFor(model => model.flightneeded, "", new { @class = "text-danger" })
+            </div>
         </div>
-    </div>
 
-    <div class="form-group">
-        @Html.LabelFor(model => model.hotelneeded, "Need Hotel? :", htmlAttributes: new { @class = "control-label col-md-2" })
-        <div class="col-md-10">
-            @Html.DropDownListFor(model => model.hotelneeded, new SelectList(new[] { "Yes", "No" }), "-- Select --", new { @class = "form-control", required = "required" })
-            @Html.ValidationMessageFor(model => model.hotelneeded, "", new { @class = "text-danger" })
+        <!-- Need Hotel? -->
+        <div class="form-group">
+            @Html.LabelFor(model => model.hotelneeded, "Need Hotel? :", htmlAttributes: new { @class = "col-md-2 col-form-label" })
+            <div class="col-md-10">
+                @Html.DropDownListFor(model => model.hotelneeded, new SelectList(new[] { "Yes", "No" }), "-- Select --", new { @class = "form-control", required = "required" })
+                @Html.ValidationMessageFor(model => model.hotelneeded, "", new { @class = "text-danger" })
+            </div>
         </div>
-    </div>
 
-    <div class="form-group">
-        @Html.Label("City Type:", htmlAttributes: new { @class = "control-label col-md-2" })
-        <div class="col-md-10">
-            @Html.DropDownList("CityType", new SelectList(new[] { "Domestic", "International" }), "-- Select --", new { @class = "form-control", id = "cityTypeSelector", required = "required" })
+        <!-- City Type -->
+        <div class="form-group">
+            @Html.Label("City Type:", htmlAttributes: new { @class = "col-md-2 col-form-label" })
+            <div class="col-md-10">
+                @Html.DropDownList("CityType", new SelectList(new[] { "Domestic", "International" }), "-- Select --", new { @class = "form-control", id = "cityTypeSelector", required = "required" })
+            </div>
         </div>
-    </div>
 
-    <div class="form-group">
-        @Html.LabelFor(model => model.departurecity, "Departure City:", htmlAttributes: new { @class = "control-label col-md-2" })
-        <div class="col-md-10">
-            @Html.DropDownListFor(model => model.departurecity, Enumerable.Empty<SelectListItem>(), "-- Select --", new { @class = "form-control", id = "departureCitySelector", required = "required" })
-            @Html.ValidationMessageFor(model => model.departurecity, "", new { @class = "text-danger" })
+        <!-- Departure City -->
+        <div class="form-group">
+            @Html.LabelFor(model => model.departurecity, "Departure City:", htmlAttributes: new { @class = "col-md-2 col-form-label" })
+            <div class="col-md-10">
+                @Html.DropDownListFor(model => model.departurecity, Enumerable.Empty<SelectListItem>(), "-- Select --", new { @class = "form-control", id = "departureCitySelector", required = "required" })
+                @Html.ValidationMessageFor(model => model.departurecity, "", new { @class = "text-danger" })
+            </div>
         </div>
-    </div>
 
-    <div class="form-group">
-        @Html.LabelFor(model => model.arrivalcity, "Arrival City:", htmlAttributes: new { @class = "control-label col-md-2" })
-        <div class="col-md-10">
-            @Html.DropDownListFor(model => model.arrivalcity, Enumerable.Empty<SelectListItem>(), "-- Select --", new { @class = "form-control", id = "arrivalCitySelector", required = "required" })
-            @Html.ValidationMessageFor(model => model.arrivalcity, "", new { @class = "text-danger" })
+        <!-- Arrival City -->
+        <div class="form-group">
+            @Html.LabelFor(model => model.arrivalcity, "Arrival City:", htmlAttributes: new { @class = "col-md-2 col-form-label" })
+            <div class="col-md-10">
+                @Html.DropDownListFor(model => model.arrivalcity, Enumerable.Empty<SelectListItem>(), "-- Select --", new { @class = "form-control", id = "arrivalCitySelector", required = "required" })
+                @Html.ValidationMessageFor(model => model.arrivalcity, "", new { @class = "text-danger" })
+            </div>
         </div>
-    </div>
 
-    <div class="form-group">
-        @Html.LabelFor(model => model.departuredate, "Departure Date:", htmlAttributes: new { @class = "control-label col-md-2" })
-        <div class="col-md-10">
-            @Html.EditorFor(model => model.departuredate, new { htmlAttributes = new { @class = "form-control", required = "required", id = "departuredate", placeholder = "Select departure date" } })
-            @Html.ValidationMessageFor(model => model.departuredate, "", new { @class = "text-danger" })
+        <!-- Departure Date -->
+        <div class="form-group">
+            @Html.LabelFor(model => model.departuredate, "Departure Date:", htmlAttributes: new { @class = "col-md-2 col-form-label" })
+            <div class="col-md-10">
+                @Html.EditorFor(model => model.departuredate, new { htmlAttributes = new { @class = "form-control", required = "required", id = "departuredate", placeholder = "YYYY-MM-DD" } })
+                @Html.ValidationMessageFor(model => model.departuredate, "", new { @class = "text-danger" })
+            </div>
         </div>
-    </div>
-    @{
-        List<SelectListItem> timeOptions = new List<SelectListItem>();
-        for (int i = 0; i < 24; i++)
-        {
-            for (int j = 0; j < 60; j += 15) // Add options every 15 minutes
+
+        <!-- Departure Time -->
+        @{ List<SelectListItem> timeOptions = new List<SelectListItem>();
+            for (int i = 0; i < 24; i++)
             {
-                timeOptions.Add(new SelectListItem
-                {
-                    Text = $"{i:D2}:{j:D2}",
-                    Value = $"{i:D2}:{j:D2}"
-                });
-            }
-        }
-    }
-
-
-
-    <div class="form-group">
-        @Html.LabelFor(model => model.departuretime, "Departure Time:", htmlAttributes: new { @class = "control-label col-md-2" })
-        <div class="col-md-10">
-            @Html.DropDownListFor(model => model.departuretime, timeOptions, "Select Time", new { @class = "form-control", required = "required" })
-            @Html.ValidationMessageFor(model => model.departuretime, "", new { @class = "text-danger" })
+                for (int j = 0; j < 60; j += 15)
+                { // Add options every 15 minutes
+                    timeOptions.Add(new SelectListItem { Text = $"{i:D2}:{j:D2}", Value = $"{i:D2}:{j:D2}" });
+                }
+            } }
+        <div class="form-group">
+            @Html.LabelFor(model => model.departuretime, "Departure Time:", htmlAttributes: new { @class = "col-md-2 col-form-label" })
+            <div class="col-md-10">
+                @Html.DropDownListFor(model => model.departuretime, timeOptions, "Select Time", new { @class = "form-control", required = "required" })
+                @Html.ValidationMessageFor(model => model.departuretime, "", new { @class = "text-danger" })
+            </div>
         </div>
 
-    </div>
+        <!-- Additional Information -->
+        <div class="form-group">
+            @Html.LabelFor(model => model.additionalinformation, "Additional Information:", htmlAttributes: new { @class = "col-md-2 col-form-label" })
+            <div class="col-md-10">
+                @Html.TextAreaFor(model => model.additionalinformation, new { @class = "form-control", required = "required", placeholder = "Enter your additional details", rows = "5" })
+                @Html.ValidationMessageFor(model => model.additionalinformation, "", new { @class = "text-danger" })
+            </div>
+        </div>
 
-    <div class="form-group">
-        @Html.LabelFor(model => model.additionalinformation, "Additional Information:", htmlAttributes: new { @class = "control-label col-md-2" })
-        <div class="col-md-10">
-            @Html.TextAreaFor(model => model.additionalinformation, new { @class = "form-control", required = "required", placeholder = "Enter your additional details", rows = "5" })
-            @Html.ValidationMessageFor(model => model.additionalinformation, "", new { @class = "text-danger" })
+        <!-- Identity Proof -->
+        <div class="form-group">
+            @Html.LabelFor(model => model.IdentityProofPath, "Identity Proof:", htmlAttributes: new { @class = "col-md-2 col-form-label" })
+            <div class="col-md-10">
+                <input type="file" name="IdentityProofFile" class="form-control" />
+            </div>
+        </div>
+
+        <!-- Submit Button -->
+        <div class="form-group">
+            <div class="col-md-offset-2 col-md-10">
+                <input type="submit" value="Create Request" class="btn btn-primary" id="submitButton" />
+            </div>
         </div>
     </div>
 
-    <div class="form-group">
-        <div class="col-md-offset-2 col-md-10">
-            <input type="submit" value="Create" class="btn btn-primary" />
-        </div>
-    </div>
-</div>}
+}
 
 <div class="text-center mt-3">
     @Html.ActionLink("Back to Dashboard", "Index", null, new { @class = "btn btn-info btn-sm details-btn" })
@@ -114,12 +137,26 @@
     @Scripts.Render("~/bundles/jqueryval")
     <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
     <script src="https://code.jquery.com/ui/1.12.1/jquery-ui.min.js"></script>
+  
     <script>
         $(function () {
             $("#departuredate").datepicker({
                 dateFormat: "yy-mm-dd",
                 minDate: 0
             });
+
+
+            $("#submitButton").click(function (e) {
+                var departureCity = $("#departureCitySelector").val();
+                var arrivalCity = $("#arrivalCitySelector").val();
+
+                if (departureCity === arrivalCity) {
+                    alert("Departure City and Arrival City cannot be the same. Please choose different cities.");
+                    e.preventDefault(); // Prevent form submission
+                }
+            });
+
+
 
             $("#cityTypeSelector").change(function () {
                 var selectedType = $(this).val();
@@ -139,9 +176,9 @@
     </script>
 }
 @functions { public List<SelectListItem> GetDomesticCities()
-            {
-                return new List<SelectListItem>
-            {
+    {
+        return new List<SelectListItem>
+{
             new SelectListItem { Text = "Bengaluru", Value = "Bengaluru" },
             new SelectListItem { Text = "Chennai", Value = "Chennai" },
             new SelectListItem { Text = "Dehradun", Value = "Dehradun" },
@@ -154,12 +191,12 @@
 
             // Add more domestic cities here
         };
-            }
+    }
 
-            public List<SelectListItem> GetInternationalCities()
-            {
-                return new List<SelectListItem>
-            {
+    public List<SelectListItem> GetInternationalCities()
+    {
+        return new List<SelectListItem>
+{
             new SelectListItem { Text = "Chicago", Value = "Chicago" },
             new SelectListItem { Text = "Las Vegas", Value = "Las Vegas" },
             new SelectListItem { Text = "Europe", Value = "Europe" },
@@ -168,4 +205,4 @@
             new SelectListItem { Text = "Nepal", Value = "Nepal" },
             // Add more international cities here
         };
-            } }
+    } }

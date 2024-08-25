@@ -79,36 +79,45 @@
                         <th>Employee Name</th>
                         <th>Employee Email</th>
                         <th>Reason for Travel</th>
+                        <th>Identity Proof</th>
                         <th>Action</th>
                     </tr>
                 </thead>
                 <tbody>
                     @foreach (var request in Model.Where(r => (r.bookingstatus == "Pending" && r.approvalstatus == "Approved")))
                     {
-                        <tr>
-                            <td>@request.requestid</td>
-                            <td>@request.employeename</td>
-                            <td>@request.employeeemail</td>
-                            <td>@request.reasonfortravel</td>
-                            <td>
-                                @using (Html.BeginForm("UpdateStatus", "AgentDashboard", FormMethod.Post, new { @class = "form-inline", role = "form" }))
-                                {
-                                    @Html.AntiForgeryToken()
+                    <tr>
+                        <td>@request.requestid</td>
+                        <td>@request.employeename</td>
+                        <td>@request.employeeemail</td>
+                        <td>@request.reasonfortravel</td>
+                        <td>
+                            @if (!string.IsNullOrEmpty(request.IdentityProofPath))
+                            {
+                    <a href="@Url.Content(request.IdentityProofPath)" target="_blank">View Identity Proof</a> }
+                                        else
+                                        {
+                    <span>No Identity Proof</span>}
+                        </td>
+                        <td>
+                            @using (Html.BeginForm("UpdateStatus", "AgentDashboard", FormMethod.Post, new { @class = "form-inline", role = "form" }))
+                            {
+                                @Html.AntiForgeryToken()
 
-                                    @Html.Hidden("requestId", (int)request.requestid)
+                                @Html.Hidden("requestId", (int)request.requestid)
 
-                                    <div class="form-group">
-                                        <label for="status">Change Status:</label>
-                                        <select class="form-control" name="status" required placeholder="Select Status">
-                                            <option value="" disabled selected>Select Status</option>
-                                            <option value="Confirmed">Confirmed</option>
-                                            <option value="Not available">Not available</option>
-                                        </select>
-                                    </div>
-                                    <button type="submit" class="btn">Update</button>
-                                }
-                            </td>
-                        </tr>
+                                <div class="form-group">
+                                    <label for="status">Change Status:</label>
+                                    <select class="form-control" name="status" required placeholder="Select Status">
+                                        <option value="" disabled selected>Select Status</option>
+                                        <option value="Confirmed">Confirmed</option>
+                                        <option value="Not available">Not available</option>
+                                    </select>
+                                </div>
+                                <button type="submit" class="btn">Update</button>
+                            }
+                        </td>
+                    </tr>
                     }
                 </tbody>
             </table>
@@ -146,19 +155,28 @@
                             <th>Employee Name</th>
                             <th>Employee Email</th>
                             <th>Reason for Travel</th>
+                            <th>Identity Proof</th>
                             <th>Status</th>
                         </tr>
                     </thead>
                     <tbody>
                         @foreach (var request in Model.Where(r => r.bookingstatus != "Pending"))
                         {
-                            <tr>
-                                <td>@request.requestid</td>
-                                <td>@request.employeename</td>
-                                <td>@request.employeeemail</td>
-                                <td>@request.reasonfortravel</td>
-                                <td>@request.bookingstatus</td>
-                            </tr>
+                        <tr>
+                            <td>@request.requestid</td>
+                            <td>@request.employeename</td>
+                            <td>@request.employeeemail</td>
+                            <td>@request.reasonfortravel</td>
+                            <td>
+                                @if (!string.IsNullOrEmpty(request.IdentityProofPath))
+                                {
+                        <a href="@Url.Content(request.IdentityProofPath)" target="_blank">View Identity Proof</a> }
+                                            else
+                                            {
+                        <span>No Identity Proof</span>}
+                            </td>
+                            <td>@request.bookingstatus</td>
+                        </tr>
                         }
                     </tbody>
                 </table>

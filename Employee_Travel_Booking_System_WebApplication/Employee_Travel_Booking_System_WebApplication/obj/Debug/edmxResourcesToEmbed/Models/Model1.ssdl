@@ -64,6 +64,7 @@
     <Property Name="additionalinformation" Type="text" />
     <Property Name="bookingstatus" Type="varchar" MaxLength="50" />
     <Property Name="approvalstatus" Type="varchar" MaxLength="50" />
+    <Property Name="IdentityProofPath" Type="nvarchar" MaxLength="255" />
   </EntityType>
   <Association Name="FK__employees__manag__38996AB5">
     <End Role="managers" Type="Self.managers" Multiplicity="0..1" />

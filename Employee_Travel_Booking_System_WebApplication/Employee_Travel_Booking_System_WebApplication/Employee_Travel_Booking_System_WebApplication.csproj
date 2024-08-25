@@ -418,6 +418,8 @@
     <Content Include="favicon.ico" />
     <Content Include="fonts\glyphicons-halflings-regular.svg" />
     <Content Include="Gallery\EmpXLogo.png" />
+    <Content Include="Gallery\Infinite.jpg" />
+    <Content Include="Gallery\InfiniteLogo.png" />
     <Content Include="Gallery\StartBackground.jpg" />
     <Content Include="Global.asax" />
     <Content Include="Models\Model1.Context.tt">
@@ -525,6 +527,7 @@
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
+    <Folder Include="Uploads\IdentityProofs\" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="fonts\glyphicons-halflings-regular.woff2" />

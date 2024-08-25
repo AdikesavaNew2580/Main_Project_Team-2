@@ -12,6 +12,7 @@ using iTextSharp.text;
 using iTextSharp.text.pdf;
 
 
+
 namespace Employee_Travel_Booking_App.Controllers.EmployeeMenu
 {
     public class TravelRequestsController : Controller
@@ -73,7 +74,7 @@ namespace Employee_Travel_Booking_App.Controllers.EmployeeMenu
         // more details see https://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Create([Bind(Include = "reasonfortravel,flightneeded,hotelneeded,departurecity,arrivalcity,departuredate,departuretime,additionalinformation")] travelrequest travelrequest)
+        public ActionResult Create([Bind(Include = "reasonfortravel,flightneeded,hotelneeded,departurecity,arrivalcity,departuredate,departuretime,additionalinformation,IdentityProofPath")] travelrequest travelrequest, HttpPostedFileBase IdentityProofFile)
         {
 
             if (ModelState.IsValid)
@@ -87,9 +88,18 @@ namespace Employee_Travel_Booking_App.Controllers.EmployeeMenu
                     travelrequest.employeeid = employeeId;
                     travelrequest.employeeemail = employeeEmail;
                     travelrequest.employeename = employeeName;
-
                     travelrequest.approvalstatus = "Pending";
                     travelrequest.bookingstatus = "Pending";
+
+                    // Handle file upload
+                    if (IdentityProofFile != null && IdentityProofFile.ContentLength > 0)
+                    {
+                        var fileName = Path.GetFileName(IdentityProofFile.FileName);
+                        var path = Path.Combine(Server.MapPath("~/Uploads/IdentityProofs"), fileName);
+                        IdentityProofFile.SaveAs(path);
+                        travelrequest.IdentityProofPath = "/Uploads/IdentityProofs/" + fileName;
+                    }
+
                     db.travelrequests.Add(travelrequest);
                     db.SaveChanges();
                     return RedirectToAction("Index");
@@ -180,6 +190,8 @@ namespace Employee_Travel_Booking_App.Controllers.EmployeeMenu
                 return File(pdfBytes, "application/pdf", "TravelRequestDetails.pdf");
             }
         }
+
+
 
 
 

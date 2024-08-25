@@ -61,7 +61,7 @@
             <dt class="col-sm-4">Additional Information:</dt>
             <dd class="col-sm-8">@Html.DisplayFor(model => model.additionalinformation)</dd>
 
-            <dt class="col-sm-4">Status:</dt>
+            <dt class="col-sm-4">Manager Approval Status:</dt>
             <dd class="col-sm-8">@Html.DisplayFor(model => model.approvalstatus)</dd>
 
             @if (Model.approvalstatus != "Cancelled" && Model.approvalstatus != "Rejected")

@@ -14,9 +14,10 @@
 
         /* Style for the navbar brand logo */
         .navbar-brand img {
-            max-height: 100%; /* Ensures the logo scales according to the navbar's height */
-            width: auto; /* Maintain aspect ratio */
+            max-height: 40px; /* Ensures the logo scales according to the navbar's height */
+            width: 60px; /* Maintain aspect ratio */
             display: block; /* Remove any extra space below the image */
+          
         }
 
    
@@ -33,7 +34,7 @@
                     <span class="icon-bar"></span>
                 </button>
                 <a class="navbar-brand" href="@Url.Action("Index", "Home")">
-                    <img src="/"C:\Users\adikesavat\Pictures\Images\EmpXLogo.png"" alt="EmpX Travel"/>
+                    <img src="Gallery/EmpXLogo.png" alt="EmpX Travel" />
                 </a>
             </div>
             <div class="navbar-collapse collapse">
@@ -41,18 +42,24 @@
                     <li>@Html.ActionLink("Home", "Index", "Home", new { area = "" }, null)</li>
                     <li>@Html.ActionLink("API", "Index", "Help", new { area = "" }, null)</li>
                 </ul>
+               
             </div>
         </div>
     </div>
+
+
+
+
     <div class="container body-content">
         @RenderBody()
         <hr />
         <footer>
-            <p>&copy; @DateTime.Now.Year - ASP.NET EmpX Travel Booking Application</p>
+            <p>&copy; @DateTime.Now.Year - ASP.NET EmpX Travel Booking Application  |  All Rights Reserved</p>
         </footer>
     </div>
     @Scripts.Render("~/bundles/jquery")
     @Scripts.Render("~/bundles/bootstrap")
     @RenderSection("scripts", required: false)
+   
 </body>
 </html>
