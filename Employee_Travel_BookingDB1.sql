@@ -89,6 +89,9 @@ create table travelrequest (
 	foreign key (employeeid) references employees(employeeid)
 )
 
+ALTER TABLE travelrequest
+ADD IdentityProofPath NVARCHAR(255);
+
 select * from Admins
 select * from Employees
 select * from managers
