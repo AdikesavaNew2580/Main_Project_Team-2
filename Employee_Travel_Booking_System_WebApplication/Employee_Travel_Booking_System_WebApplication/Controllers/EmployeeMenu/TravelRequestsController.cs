@@ -177,6 +177,7 @@ namespace Employee_Travel_Booking_App.Controllers.EmployeeMenu
                 document.Add(new Paragraph($"Employee Name: {travelRequest.employeename}"));
                 document.Add(new Paragraph($"Employee Mail ID: {travelRequest.employeeemail}"));
                 document.Add(new Paragraph($"Reason for Travel: {travelRequest.reasonfortravel}"));
+              
                 document.Add(new Paragraph($"Departure Date: {travelRequest.departuredate?.ToString("dd-MM-yyyy") ?? "N/A"}"));
                 document.Add(new Paragraph($"Departure City: {travelRequest.departurecity}"));
                 document.Add(new Paragraph($"Arrival City: {travelRequest.arrivalcity}"));

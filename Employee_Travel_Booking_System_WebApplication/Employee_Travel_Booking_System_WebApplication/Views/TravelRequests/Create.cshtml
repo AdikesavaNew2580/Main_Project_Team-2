@@ -4,6 +4,63 @@
 
 <h2 class="text-center mb-4">Travel Request</h2>
 
+<style>
+    .ui-datepicker {
+        font-size: 12px;
+        background-color: #fff;
+        border: 1px solid #ccc;
+        border-radius: 5px;
+        padding: 15px;
+        width: 250px;
+        box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
+    }
+
+        .ui-datepicker .ui-datepicker-header {
+            background-color: #f0f0f0;
+            border-bottom: 1px solid #ccc;
+            padding: 15px;
+        }
+
+        .ui-datepicker .ui-datepicker-prev, .ui-datepicker .ui-datepicker-next {
+            cursor: pointer;
+            text-decoration: none;
+        }
+
+            .ui-datepicker .ui-datepicker-prev:hover, .ui-datepicker .ui-datepicker-next:hover {
+                background-color: #ccc;
+                color: #fff;
+                text-decoration: none;
+            }
+
+        .ui-datepicker .ui-datepicker-days td {
+            padding: 15px;
+        }
+
+            .ui-datepicker .ui-datepicker-days td:hover {
+                background-color: #f0f0f0;
+            }
+
+            .ui-datepicker .ui-datepicker-days td.ui-datepicker-today {
+                background-color: #ccc;
+                color: #fff;
+            }
+
+            .ui-datepicker .ui-datepicker-days td.ui-datepicker-selected {
+                background-color: #337ab7;
+                color: #fff;
+            }
+
+        .ui-datepicker td {
+            width: 30px; /* or any other width you prefer */
+            height: 30px; /* or any other height you prefer */
+        }
+
+    .form-control {
+        padding: 10px;
+        height: 40px;
+    }
+</style>
+
 @using (Html.BeginForm(null, null, FormMethod.Post, new { enctype = "multipart/form-data" }))
 {
     @Html.AntiForgeryToken()
@@ -80,7 +137,9 @@
         <div class="form-group">
             @Html.LabelFor(model => model.departuredate, "Departure Date:", htmlAttributes: new { @class = "col-md-2 col-form-label" })
             <div class="col-md-10">
-                @Html.EditorFor(model => model.departuredate, new { htmlAttributes = new { @class = "form-control", required = "required", id = "departuredate", placeholder = "YYYY-MM-DD" } })
+                <div class="input-group">
+                    @Html.EditorFor(model => model.departuredate, new { htmlAttributes = new { @class = "form-control", required = "required", id = "departuredate", placeholder = "YYYY-MM-DD" } })
+                </div>
                 @Html.ValidationMessageFor(model => model.departuredate, "", new { @class = "text-danger" })
             </div>
         </div>
@@ -113,7 +172,7 @@
 
         <!-- Identity Proof -->
         <div class="form-group">
-            @Html.LabelFor(model => model.IdentityProofPath, "Identity Proof:", htmlAttributes: new { @class = "col-md-2 col-form-label" })
+            @Html.LabelFor(model => model.IdentityProofPath, "Identity Proof:", htmlAttributes: new { @class = "col-md-2 col-form-label", required = "required" })
             <div class="col-md-10">
                 <input type="file" name="IdentityProofFile" class="form-control" />
             </div>
@@ -188,6 +247,8 @@
             new SelectListItem { Text = "Pune", Value = "Pune" },
             new SelectListItem { Text = "Noida", Value = "Noida" },
             new SelectListItem { Text = "Visakhapatnam", Value = "Visakhapatnam" },
+            new SelectListItem { Text = "America", Value = "America" },
+            new SelectListItem { Text = "Chicago", Value = "Chicago" },
 
             // Add more domestic cities here
         };

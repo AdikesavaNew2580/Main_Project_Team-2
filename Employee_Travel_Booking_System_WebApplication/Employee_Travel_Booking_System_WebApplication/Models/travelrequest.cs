@@ -11,26 +11,44 @@ namespace Employee_Travel_Booking_System_WebApplication.Models
 {
     using System;
     using System.Collections.Generic;
+    using System.ComponentModel.DataAnnotations;
     
     public partial class travelrequest
     {
+      
         public int requestid { get; set; }
+      
         public string employeename { get; set; }
+      
         public string employeeemail { get; set; }
+       
         public Nullable<int> employeeid { get; set; }
+      
         public string reasonfortravel { get; set; }
+       
         public string flightneeded { get; set; }
+     
         public string hotelneeded { get; set; }
+
+       
+       
         public string departurecity { get; set; }
+
+      
         public string arrivalcity { get; set; }
+       
         public Nullable<System.DateTime> departuredate { get; set; }
+      
         public Nullable<System.TimeSpan> departuretime { get; set; }
+       
         public string additionalinformation { get; set; }
+      
         public string bookingstatus { get; set; }
+     
         public string approvalstatus { get; set; }
-
+       
         public string IdentityProofPath { get; set; }
-
+   
         public virtual employee employee { get; set; }
     }
 }

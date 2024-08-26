@@ -17,6 +17,8 @@ namespace Employee_Travel_Booking_System_WebApplication.Controllers.AdminMenu
             db = new Employee_Travel_Booking_SystemDB1Entities(); // Initialize your DbContext
         }
 
+
+
         [HttpGet]
         public ActionResult Login()
         {
