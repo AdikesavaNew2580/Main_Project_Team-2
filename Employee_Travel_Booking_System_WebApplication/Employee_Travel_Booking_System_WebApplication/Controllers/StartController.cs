@@ -9,7 +9,7 @@ namespace Employee_Travel_Booking_System_WebApplication.Controllers
     public class StartController : Controller
     {
         // GET: Start
-        public ActionResult Index()
+        public ActionResult Index() 
         {
             return View();
         }
